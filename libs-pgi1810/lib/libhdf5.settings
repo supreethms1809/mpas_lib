@@ -1,0 +1,59 @@
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+		   HDF5 Version: 1.8.20
+		  Configured on: Thu Dec  6 14:14:15 MST 2018
+		  Configured by: ssuresh@casper09
+		 Configure mode: production
+		    Host system: x86_64-unknown-linux-gnu
+	      Uname information: Linux casper09 3.10.0-693.21.1.el7.x86_64 #1 SMP Wed Mar 7 19:03:37 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+		       Byte sex: little-endian
+		      Libraries: static
+	     Installation point: /glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810
+
+Compiling Options:
+------------------
+               Compilation Mode: production
+                     C Compiler: /glade/work/ssuresh/1810pgi/openmpi/bin//mpicc
+                         CFLAGS: -fPIC -I/usr/local/include
+                      H5_CFLAGS:   -c99 -Minform=inform -fast -s
+                      AM_CFLAGS: 
+                       CPPFLAGS: -fPIC -I/usr/local/include
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS:  -I/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810//include
+               Shared C Library: no
+               Static C Library: yes
+  Statically Linked Executables: no
+                        LDFLAGS: -noswitcherror -Wl,-rpath,/usr/local/lib -lpthread -lm -lrt -ldl
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS:  -L/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810//lib
+ 	 	Extra libraries: -lz -ldl -lm 
+ 		       Archiver: ar
+ 		 	 Ranlib: ranlib
+ 	      Debugged Packages: 
+		    API Tracing: no
+
+Languages:
+----------
+                        Fortran: no
+
+                            C++: no
+
+Features:
+---------
+                  Parallel HDF5: yes
+             High Level library: yes
+                   Threadsafety: no
+            Default API Mapping: v18
+ With Deprecated Public Symbols: yes
+         I/O filters (external): deflate(zlib)
+                            MPE: 
+                     Direct VFD: no
+                        dmalloc: no
+Clear file buffers before write: yes
+           Using memory checker: no
+         Function Stack Tracing: no
+      Strict File Format Checks: no
+   Optimization Instrumentation: no

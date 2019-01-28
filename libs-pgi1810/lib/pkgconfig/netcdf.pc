@@ -1,0 +1,13 @@
+prefix=/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ccompiler=mpicc
+
+Name: netcdf
+Description: NetCDF Client Library for C
+URL: http://www.unidata.ucar.edu/netcdf
+Version: 4.6.1
+Libs: -L${libdir} -L/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810//lib -lnetcdf -lpnetcdf -lm -lhdf5_hl -lhdf5 -lz -ldl
+Cflags: -I${includedir}
+

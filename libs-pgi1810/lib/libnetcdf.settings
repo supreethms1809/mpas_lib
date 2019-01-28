@@ -1,0 +1,38 @@
+# NetCDF C Configuration Summary
+==============================
+
+# General
+-------
+NetCDF Version:		4.6.1
+Configured On:		Thu Dec  6 14:36:16 MST 2018
+Host System:		x86_64-pc-linux-gnu
+Build Directory: 	/glade/work/ssuresh/1810pgi/pgi1810_lib/build/netcdf-c-4.6.1
+Install Prefix:         /glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810
+
+# Compiling Options
+-----------------
+C Compiler:		/glade/work/ssuresh/1810pgi/openmpi/bin//mpicc
+CFLAGS:			-fPIC -I/usr/local/include
+CPPFLAGS:		-I/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810//include
+LDFLAGS:		-L/glade/work/ssuresh/1810pgi/pgi1810_lib/libs-pgi1810//lib
+AM_CFLAGS:		
+AM_CPPFLAGS:		
+AM_LDFLAGS:		
+Shared Library:		no
+Static Library:		yes
+Extra libraries:	-lpnetcdf -lm -lhdf5_hl -lhdf5 -lz -ldl
+
+# Features
+--------
+NetCDF-2 API:		yes
+HDF4 Support:		no
+NetCDF-4 API:		yes
+NC-4 Parallel Support:	yes
+PNetCDF Support:	yes
+DAP2 Support:		no
+DAP4 Support:		no
+Diskless Support:	yes
+MMap Support:		no
+JNA Support:		no
+CDF5 Support:		yes
+ERANGE fill Support:	yes
