@@ -1,0 +1,39 @@
+# Load modules and set compiler variables
+module purge
+export PATH=/glade/work/ssuresh/1810pgi/linux86-64/18.10/bin/:$PATH
+export LD_LIBRARY_PATH=/glade/work/ssuresh/1810pgi/linux86-64/18.10/lib/:$LD_LIBRARY_PATH
+module load ncarenv cuda/9.2
+export CC="pgcc -noswitcherror"
+export FC="pgf90 -noswitcherror"
+export CXX="pgc++ -noswitcherror"
+export F90="pgf90 -noswitcherror"
+export F77="pgfortran -noswitcherror"
+export F08="pgf08 -noswitcherror"
+
+# Define config/build options for package
+export SLURMDIR=/usr/local
+export LIBRARY_PATH=${SLURMDIR}/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=${SLURMDIR}/lib:$LD_LIBRARY_PATH
+export LDFLAGS="-noswitcherror -Wl,-rpath,${SLURMDIR}/lib -lpthread -lm -lrt -ldl"
+export {CPPFLAGS,CFLAGS,CXXFLAGS,FFLAGS,FCFLAGS,F77FLAGS,F90FLAGS}="-fPIC -I${SLURMDIR}/include"
+BUILDOPTS=" --with-libevent=/usr                \
+            --with-verbs                        \
+            --without-ucx                       \
+            --with-slurm=$SLURMDIR              \
+            --without-scif                      \
+            --with-pmix=$SLURMDIR               \
+            --with-pmix-libdir=${SLURMDIR}/lib  \
+            --with-cuda=$CUDA_HOME"
+# Build the package using config-make
+export INSTALLDIR=/glade/work/ssuresh/1810pgi/openmpi
+./configure --prefix=$INSTALLDIR $BUILDOPTS
+make
+make install
+
+# Add MCA settings to system config
+cat >> ${INSTALLDIR}/etc/openmpi-mca-params.conf << EOF
+btl_openib_if_include = mlx5_0,mlx4_0
+btl_mpi_warn_on_fork = 0
+shmem_mmap_enable_nfs_warning = 0
+btl_openib_warn_nonexistent_if = 0
+EOF
